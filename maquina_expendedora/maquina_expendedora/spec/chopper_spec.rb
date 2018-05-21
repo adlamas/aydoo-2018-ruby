@@ -1,38 +1,38 @@
-# Consigna: 
-#  Escribir la clase Chopper de manera tal que todas las preubas pasen. 
+# Consigna:
+#  Escribir la clase Chopper de manera tal que todas las preubas pasen.
 #  Hacer pasar las pruebas de 1 por vez utilizando TDD a integración continua
 #
 # Una vez completa la tarea, generar un TAG en el repositorio y subir a alfred el link a dicho TAG
 # Fecha de entrega 13 de Septiembre
 # es paso lo que restaría de la kata 1. Explicación textual:
-# 
+#
 # El chop devuelve la posición del elemento en el array
-# El sum, devuelve el texto de los dígitos de la sumatoria de los números contenidos en el array siempre que los esa sumatoria no exceda los dos dígitos. 
-# 
+# El sum, devuelve el texto de los dígitos de la sumatoria de los números contenidos en el array siempre que los esa sumatoria no exceda los dos dígitos.
+#
 # En ambos casos se asume que el array no contendrá número negativos.
- 
-require 'rspec' 
+
+require 'rspec'
 require_relative '../model/chopper'
 
 describe 'Chopper' do
 
   let(:chopper) { Chopper.new }  
-   
+
   it 'chop de 3 y vacio deberia ser -1' do
     expect(chopper.chop(3,[])).to eq -1
   end
 
 =begin
   it 'chop de 3 y [3] deberia ser 0' do
-    expect(chopper.chop(3,[3])).to eq 0 
+    expect(chopper.chop(3,[3])).to eq 0
   end
 
   it 'chop de 3 y [0,7,3] deberia ser 2' do
-    expect(chopper.chop(3,[0,7,3])).to eq 2 
+    expect(chopper.chop(3,[0,7,3])).to eq 2
   end
 
   it 'sum de [] deberia ser vacio' do
-    expect(chopper.sum([])).to eq 'vacio' 
+    expect(chopper.sum([])).to eq 'vacio'
   end
 
   it 'sum de [1] deberia ser uno' do
