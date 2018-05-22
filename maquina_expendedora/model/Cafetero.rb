@@ -1,0 +1,6 @@
+
+class Cafetero
+
+  
+
+end

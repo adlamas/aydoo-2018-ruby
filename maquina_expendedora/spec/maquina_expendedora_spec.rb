@@ -38,4 +38,12 @@ describe "Test" do
 
   end
 
+  it "poner cafe con dos de azucar" do
+    cantidad_azucar = 2
+    subject.hacer_cafe_con_n_de_azucar(un_vaso, cantidad_azucar)
+    expect(un_vaso.cantidad_de_azucar).to eq 2
+    expect(un_vaso.tiene_cafe?).to eq true
+
+  end
+
 end
