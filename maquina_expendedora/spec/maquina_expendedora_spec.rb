@@ -18,14 +18,32 @@ describe "Test" do
     cantidad_azucar = 2
     subject.hacer_cafe_con_n_de_azucar(un_vaso, cantidad_azucar)
     expect(un_vaso.cantidad_de_azucar).to eq 2
-    expect(un_vaso.tiene_cafe?).to eq true
+    expect(un_vaso.tiene_cafe?).to be_truthy
 
   end
 
   it "poner azucar y no cafe" do
     cantidad_azucar = 2
     un_vaso.agregar_azucar(cantidad_azucar)
-    expect(un_vaso.tiene_cafe?).to eq false
+    expect(un_vaso.tiene_cafe?).to be_falsey
+  end
+
+  it "poner te" do
+    un_vaso.agregar_te()
+    expect(un_vaso.tiene_te?).to be_truthy
+  end
+
+  it "poner te y tres de azucar" do
+    un_vaso.agregar_te()
+    un_vaso.agregar_azucar(3)
+
+    expect(un_vaso.tiene_te?).to be_truthy
+    expect(un_vaso.cantidad_de_azucar).to eq 3
+  end
+
+  it "poner leche" do
+    un_vaso.agregar_leche()
+    expect(un_vaso.tiene_leche?).to be_truthy
   end
 
 =begin
