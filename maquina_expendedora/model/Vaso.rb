@@ -15,6 +15,7 @@ class Vaso
     @sustancias = Array.new
     @lechero = Lechero.new
 
+
   end
 
   def agregar_azucar(azucar)
@@ -47,7 +48,12 @@ class Vaso
   end
 
   def tiene_azucar?()
-    return true;
+    if(@cantidad_de_azucar > 0)
+      return true
+    else
+      return false
+    end
+
   end
 
   def tiene_te?()

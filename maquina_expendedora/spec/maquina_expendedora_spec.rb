@@ -46,7 +46,7 @@ describe "Test" do
     expect(un_vaso.tiene_leche?).to be_truthy
   end
 
-=begin
+
   it 'deberia hacer cafe con leche con 10 de azucar' do
     cantidad_azucar = 10
 
@@ -69,8 +69,5 @@ describe "Test" do
     expect(un_vaso.tiene_azucar?).to be_falsey
     expect(un_vaso.tiene_te?).to be_truthy
   end
-=end
-
-
-
+  
 end

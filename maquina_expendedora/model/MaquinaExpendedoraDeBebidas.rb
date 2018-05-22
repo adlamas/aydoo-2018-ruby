@@ -7,8 +7,10 @@ class MaquinaExpendedoraDeBebidas
     vaso.agregar_cafe()
   end
 
-  def hacer_te_con_leche_con_n_de_azucar(vaso, cantidad_azucar)
-
+  def hacer_te_con_leche_con_n_de_azucar(vaso, cantidad_de_azucar)
+    vaso.agregar_azucar(cantidad_de_azucar)
+    vaso.agregar_leche()
+    vaso.agregar_te()
   end
 
   def hacer_cafe_con_n_de_azucar(vaso, cantidad_azucar)
@@ -18,7 +20,8 @@ class MaquinaExpendedoraDeBebidas
   end
 
   def hacer_te_con_n_de_azucar(vaso)
-
+    vaso.agregar_azucar(cantidad_de_azucar)
+    vaso.agregar_te()
   end
 
 end
