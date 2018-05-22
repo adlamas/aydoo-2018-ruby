@@ -19,7 +19,7 @@ class MaquinaExpendedoraDeBebidas
 
   end
 
-  def hacer_te_con_n_de_azucar(vaso)
+  def hacer_te_con_n_de_azucar(vaso,cantidad_de_azucar)
     vaso.agregar_azucar(cantidad_de_azucar)
     vaso.agregar_te()
   end

@@ -46,6 +46,11 @@ describe "Test" do
     expect(un_vaso.tiene_leche?).to be_truthy
   end
 
+  it "poner te y 0 de azucar" do
+    subject.hacer_te_con_n_de_azucar(un_vaso,0)
+    expect(un_vaso.cantidad_de_azucar).to eq 0
+    expect(un_vaso.tiene_te?).to be_truthy
+  end
 
   it 'deberia hacer cafe con leche con 10 de azucar' do
     cantidad_azucar = 10
@@ -58,7 +63,6 @@ describe "Test" do
     expect(un_vaso.tiene_te?).to be_falsey
   end
 
-
   it 'deberia hacer te con leche con 0 de azucar' do
     cantidad_azucar = 0
 
@@ -69,5 +73,5 @@ describe "Test" do
     expect(un_vaso.tiene_azucar?).to be_falsey
     expect(un_vaso.tiene_te?).to be_truthy
   end
-  
+
 end

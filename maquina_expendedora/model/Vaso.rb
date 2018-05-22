@@ -14,8 +14,6 @@ class Vaso
     @tetero = Tetero.new
     @sustancias = Array.new
     @lechero = Lechero.new
-
-
   end
 
   def agregar_azucar(azucar)
@@ -26,11 +24,11 @@ class Vaso
     @cafetero.agregar_cafe(self)
   end
 
-  def agregar_te
+  def agregar_te()
     @tetero.agregar_te(self)
   end
 
-  def agregar_leche
+  def agregar_leche()
     @lechero.agregar_leche(self)
   end
 

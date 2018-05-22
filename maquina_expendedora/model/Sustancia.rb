@@ -7,7 +7,7 @@ class Sustancia
     @nombre_sustancia = nombre
   end
 
-  def get_nombre_sustancia
+  def get_nombre_sustancia()
     return @nombre_sustancia
   end
 
