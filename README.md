@@ -1,6 +1,6 @@
-Chopper, proyecto base ruby
+MaquinaExpendedora, proyecto base ruby
 ===========================
-
+[![Build Status](https://travis-ci.org/adlamas/aydoo-2018-ruby.svg?branch=master)](https://travis-ci.org/adlamas/aydoo-2018-ruby)
 
 ## Preparación del ambiente
 
