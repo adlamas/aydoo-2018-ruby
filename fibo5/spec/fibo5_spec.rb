@@ -9,12 +9,12 @@ describe "Aplicacion fibo5" do
     Sinatra::Application
   end
 
-  describe "raiz" do
-    it 'deberia devolver un arreglo' do
+  describe "devolver arreglo fibo" do
+    it "deberia devolver el arreglo fibo con solo un numero" do
       get "/fibonacci/4"
 
       expect(last_response).to be_ok
-      expect(last_response.body).to eq "4"
+      expect(last_response.body).to eq '{"lista":[0,1,1,2]}'
 
     end
   end
