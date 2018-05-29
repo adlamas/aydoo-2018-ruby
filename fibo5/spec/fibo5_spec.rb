@@ -101,4 +101,13 @@ describe "Aplicacion fibo5" do
     end
   end
 
+  describe "calcular arreglo con sentido y solo " do
+    it "calcular arreglo completo con sentido y solo" do
+      arreglo_final = ArregloCompleto.calcular_arreglo_completo([0,1,1,2,3,5,8,13], "sentido=inverso", "solo=impares");
+
+      expect(arreglo_final).to eq [13,5,3,1,1];
+    end
+
+  end
+
 end
