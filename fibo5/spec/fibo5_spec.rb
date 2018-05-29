@@ -3,6 +3,7 @@ require 'rspec'
 require 'rack/test'
 require_relative '../model/arreglo_completo'
 require_relative '../model/sentido'
+require_relative '../model/solo'
 
 describe "Aplicacion fibo5" do
   include Rack::Test::Methods
@@ -59,6 +60,32 @@ describe "Aplicacion fibo5" do
 
     end
 
+  end
+
+  describe "devolver solo valores pares" do
+    it "deberia devolver solo los pares de un arreglo" do
+      arreglo_8 = [0,1,1,2,3,5,8,13]
+      arreglo_5 = [0,1,1,2,3]
+
+      arreglo_nuevo_8 = Solo.solo_valores_pares(arreglo_8)
+      arreglo_nuevo_5 = Solo.solo_valores_pares(arreglo_5)
+
+      expect(arreglo_nuevo_8).to eq [2,8]
+      expect(arreglo_nuevo_5).to eq [2]
+    end
+  end
+
+  describe "devolver solo valores impares" do
+    it "deberia devolver solo los impares de un arreglo" do
+      arreglo_8 = [0,1,1,2,3,5,8,13]
+      arreglo_5 = [0,1,1,2,3]
+
+      arreglo_nuevo_8 = Solo.solo_valores_impares(arreglo_8)
+      arreglo_nuevo_5 = Solo.solo_valores_impares(arreglo_5)
+
+      expect(arreglo_nuevo_8).to eq [1,1,3,5,13]
+      expect(arreglo_nuevo_5).to eq [1,1,3]
+    end
   end
 
 end
