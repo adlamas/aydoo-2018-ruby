@@ -110,4 +110,40 @@ describe "Aplicacion fibo5" do
 
   end
 
+  describe "calcular arreglo con sentido y solo 2 " do
+    it "calcular arreglo completo con sentido y solo 2" do
+      arreglo_final = ArregloCompleto.calcular_arreglo_completo([0,1,1,2,3,5,8,13], "sentido=directo", "solo=impares");
+
+      expect(arreglo_final).to eq [1,1,3,5,13];
+    end
+
+  end
+
+  describe "calcular el arreglo sin sentido y con solo" do
+    it "calcular arreglo completo sin sentido y con solo" do
+      arreglo_final = ArregloCompleto.calcular_arreglo_completo([0,1,1,2,3,5,8,13], "solo=impares");
+
+      expect(arreglo_final).to eq [1,1,3,5,13];
+    end
+
+  end
+
+  describe "calcular el arreglo con sentido inverso" do
+    it "calcular arreglo completo con sentido inverso" do
+      arreglo_final = ArregloCompleto.calcular_arreglo_completo([0,1,1,2,3,5,8,13], "sentido=inverso");
+
+      expect(arreglo_final).to eq [13,8,5,3,2,1,1,0];
+    end
+
+  end
+
+  describe "calcular el arreglo con sentido directo" do
+    it "calcular arreglo completo con sentido directo" do
+      arreglo_final = ArregloCompleto.calcular_arreglo_completo([0,1,1,2,3,5,8,13], "sentido=directo");
+
+      expect(arreglo_final).to eq [0,1,1,2,3,5,8,13];
+    end
+
+  end
+
 end
