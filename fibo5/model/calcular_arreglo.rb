@@ -4,7 +4,7 @@ class CalculoArreglo
   def initialize()
   end
 
-  def calcular(numero)
+  def self.calcular(numero)
     serie_fibo = [0,1]
     temporal = 0;
     numero1 = 0;

@@ -1,6 +1,0 @@
-
-class FiboCalculo
-
-  
-
-end
