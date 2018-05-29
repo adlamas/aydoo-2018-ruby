@@ -88,4 +88,17 @@ describe "Aplicacion fibo5" do
     end
   end
 
+  describe "test solo_estos_valores" do
+    it "el metodo solo_estos_valores deberia dar correctamente" do
+      arreglo_8 = [0,1,1,2,3,5,8,13]
+      arreglo_10 = [0,1,1,2,3,5,8,13,21,34]
+
+      arreglo_nuevo_8 = Solo.solo_estos_valores(arreglo_8, "impares")
+      arreglo_nuevo_10 = Solo.solo_estos_valores(arreglo_10, "pares")
+
+      expect(arreglo_nuevo_8).to eq [1,1,3,5,13]
+      expect(arreglo_nuevo_10).to eq [2,8,34]
+    end
+  end
+
 end
