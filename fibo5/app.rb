@@ -16,7 +16,7 @@ get '/fibonacci/:N' do
   sentido = params[:sentido]
   solo = params[:solo]
   arreglo = CalculoArreglo.calcular(numero)
-  arreglo_final = ArregloCompleto.calcular_arreglo_completo(arreglo, sentido, solo)
+  #arreglo_final = ArregloCompleto.calcular_arreglo_completo(arreglo, sentido, solo)
 
   json(fibonacci: { limite: numero, lista: arreglo })
 end

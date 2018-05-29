@@ -2,6 +2,7 @@ require_relative '../app'
 require 'rspec'
 require 'rack/test'
 require_relative '../model/arreglo_completo'
+require_relative '../model/sentido'
 
 describe "Aplicacion fibo5" do
   include Rack::Test::Methods
@@ -27,6 +28,34 @@ describe "Aplicacion fibo5" do
 
       expect(arreglo.class).to eq Array;
       expect(arreglo).to eq ["hola", "pedro"];
+
+    end
+
+  end
+
+  describe "test split" do
+    it "el split debe convertir los parametros  en 2 strings" do
+      cadena = "solo=pares";
+      arreglo_cadena = cadena.split("=");
+      expect(arreglo_cadena[0]).to eq "solo";
+      expect(arreglo_cadena[1]).to eq "pares";
+
+    end
+  end
+
+  describe "invertir arreglo" do
+    it "deberia devolver el arreglo invertido" do
+      arreglo_8 = [0,1,1,2,3,5,8,13]
+      arreglo_5 = [0,1,1,2,3]
+      arreglo_7 = [0,1,1,2,3,5,8]
+      sentido = "inverso"
+      arreglo_nuevo_8 = Sentido.dar_sentido_al_arreglo(arreglo_8, sentido)
+      arreglo_nuevo_5 = Sentido.dar_sentido_al_arreglo(arreglo_5, sentido)
+      arreglo_nuevo_7 = Sentido.dar_sentido_al_arreglo(arreglo_7, sentido)
+
+      expect(arreglo_nuevo_8).to eq [13,8,5,3,2,1,1,0]
+      expect(arreglo_nuevo_5).to eq [3,2,1,1,0]
+      expect(arreglo_nuevo_7).to eq [8,5,3,2,1,1,0]
 
     end
 
