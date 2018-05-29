@@ -1,23 +1,29 @@
 
 class CalculoArreglo
 
-  def initialize()
-  end
-
   def self.calcular(numero)
-    serie_fibo = [0,1]
+    numero_i = numero.to_i;
+=begin
+    serie_fibo = Array.new()
+    serie_fibo.push(0)
+    serie_fibo[1] = 1;
+
     temporal = 0;
     numero1 = 0;
     numero2 = 1;
 
-    for i in 2..(numero - 1) do
+    for i in 2..(numero_i - 1) do
       temporal = numero1;
       numero1 = numero2;
       numero2 = temporal + numero1;
       serie_fibo[i] = numero2;
     end
 
-    return serie_fibo;
+    #return serie_fibo;
+=end
+
+return numero_i;
+
   end
 
 end

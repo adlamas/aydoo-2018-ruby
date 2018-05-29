@@ -146,4 +146,15 @@ describe "Aplicacion fibo5" do
 
   end
 
+  describe "calcular el arreglo mediante un numero" do
+    it "calcular arreglo" do
+      numero = 8
+      arreglo = CalculoArreglo.calcular(numero)
+
+      expect(arreglo).to eq [0,1,1,2,3,5,8,13]
+
+    end
+
+  end
+
 end

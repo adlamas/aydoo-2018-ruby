@@ -15,6 +15,7 @@ class Sentido
 
   def self.invertir(arreglo_pasado)
     numerosDescendentes = arreglo_pasado;
+    
 		for  i in 0...(numerosDescendentes.length - 1) do
 			for  j in (i + 1)...numerosDescendentes.length do
         if (numerosDescendentes[i] < numerosDescendentes[j])
