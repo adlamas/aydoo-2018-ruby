@@ -9,14 +9,20 @@ require "byebug"
 
 get '/fibonacci/:numero' do
 
-  numero = params[:numero]
-  sentido = "sentido=#{params[:sentido]}"
-  solo = "solo=#{params[:solo]}"
+  @respuesta;
+  begin
+    numero = params[:numero].to_i
+    sentido = "sentido=#{params[:sentido]}"
+    solo = "solo=#{params[:solo]}"
 
-  arreglo_con_parametros = ArregloCompleto.calcular_arreglo_completo(numero, sentido, solo);
-  respuesta = json(fibonacci: { limite: params[:numero].to_i, lista: arreglo_con_parametros })
-  return respuesta;
+    arreglo_con_parametros = ArregloCompleto.calcular_arreglo_completo(numero, sentido, solo);
+    @respuesta = json(fibonacci: { limite: params[:numero].to_i, lista: arreglo_con_parametros })
+  rescue
+    @respuesta = json(error: "Opcion no válida")
+  ensure
 
+  end
+  return @respuesta;
 end
 
 get '/fibonacci/:numero/:S_L' do
@@ -32,6 +38,9 @@ get '/fibonacci/:numero/:S_L' do
   if(suma_lista == "sumatoria")
     suma = Sumatoria.sumar(arreglo_con_parametros)
     respuesta = json(fibonacci: { limite: params[:numero].to_i, suma: suma })
+  elsif(suma_lista == "lista")
+  else
+    respuesta = json(error: "Opcion no válida")
   end
 
   return respuesta;
