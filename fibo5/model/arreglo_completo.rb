@@ -16,8 +16,6 @@ class ArregloCompleto
             arreglo_pasado = Sentido.dar_sentido_al_arreglo(arreglo_pasado, array_parametro[1])
           elsif(array_parametro[0] == 'solo')
             arreglo_pasado = Solo.solo_estos_valores(arreglo_pasado, array_parametro[1])
-          elsif(array_parametro[0] == 'suma_lista')
-            arreglo_pasado = Sumatoria.sumar(arreglo_pasado, array_parametro[1])
           end
         end
       end

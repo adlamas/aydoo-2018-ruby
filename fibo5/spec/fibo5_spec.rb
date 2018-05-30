@@ -4,6 +4,7 @@ require 'rack/test'
 require_relative '../model/arreglo_completo'
 require_relative '../model/sentido'
 require_relative '../model/solo'
+require_relative '../model/sumatoria'
 
 describe "Aplicacion fibo5" do
   include Rack::Test::Methods
@@ -142,7 +143,23 @@ describe "Aplicacion fibo5" do
       expect(arreglo).to eq [0,1,1,2,3,5,8,13]
 
     end
+  end
 
+  describe "sumar arreglo" do
+    it "deberia sumar el arreglo que le paso" do
+      arreglo = [0,1,1,2,3,5];
+      arreglo2 = [0,1,1,2,3,5,8,13];
+      arreglo3 = [0,1,1,2,3,5,8,13,21,34];
+
+      suma1 = Sumatoria.sumar(arreglo);
+      suma2 = Sumatoria.sumar(arreglo2);
+      suma3 = Sumatoria.sumar(arreglo3);
+
+      expect(suma1).to eq 12
+      expect(suma2).to eq 33
+      expect(suma3).to eq 88
+
+    end
   end
 
 end
