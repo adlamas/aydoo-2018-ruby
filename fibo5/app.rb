@@ -10,21 +10,22 @@ get '/fibonacci/:numero/:S_L' do
 
   numero = params[:numero]
   suma_lista = params[:S_L]
-  sentido = params[:sentido]
-  solo = params[:solo]
+  sentido = "sentido=#{params[:sentido]}"
+  solo = "solo=#{params[:solo]}"
 
   arreglo_con_parametros = ArregloCompleto.calcular_arreglo_completo(numero, sentido, solo);
-  respuesta = json(fibonacci: { limite: params[:numero].to_i, lista: arreglo_con_parametros })
+  @respuesta = json(fibonacci: { limite: params[:numero].to_i, lista: arreglo_con_parametros })
+  puts "arreglo con parametros #{arreglo_con_parametros}"
 
   if(suma_lista == "sumatoria")
     suma = Sumatoria.sumar(arreglo_con_parametros)
-    respuesta = json(fibonacci: { limite: params[:numero].to_i, suma: suma })
+    @respuesta = json(fibonacci: { limite: params[:numero].to_i, sumatoria: suma })
   elsif(suma_lista == "lista")
   else
-    respuesta = json(error: "Opcion no válida")
+    @respuesta = json(error: "Opcion no válida")
   end
 
-  return respuesta;
+  return @respuesta;
 
 end
 
