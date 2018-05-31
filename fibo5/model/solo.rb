@@ -8,7 +8,7 @@ class Solo
     elsif (solo == "impares")
       arreglo_nuevo = solo_valores_impares(arreglo_pasado)
     else
-      #tirar una excepcion
+
     end
 
     return arreglo_nuevo;

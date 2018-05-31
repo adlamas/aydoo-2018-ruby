@@ -15,7 +15,6 @@ get '/fibonacci/:numero/:S_L' do
 
   arreglo_con_parametros = ArregloCompleto.calcular_arreglo_completo(numero, sentido, solo);
   @respuesta = json(fibonacci: { limite: params[:numero].to_i, lista: arreglo_con_parametros })
-  puts "arreglo con parametros #{arreglo_con_parametros}"
 
   if(suma_lista == "sumatoria")
     suma = Sumatoria.sumar(arreglo_con_parametros)
