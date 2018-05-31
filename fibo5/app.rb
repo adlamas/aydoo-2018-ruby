@@ -6,25 +6,6 @@ require_relative 'model/arreglo_completo'
 require_relative 'model/sumatoria'
 require "byebug"
 
-
-get '/fibonacci/:numero' do
-
-  @respuesta;
-  begin
-    numero = params[:numero].to_i
-    sentido = "sentido=#{params[:sentido]}"
-    solo = "solo=#{params[:solo]}"
-
-    arreglo_con_parametros = ArregloCompleto.calcular_arreglo_completo(numero, sentido, solo);
-    @respuesta = json(fibonacci: { limite: params[:numero].to_i, lista: arreglo_con_parametros })
-  rescue
-    @respuesta = json(error: "Opcion no válida")
-  ensure
-
-  end
-  return @respuesta;
-end
-
 get '/fibonacci/:numero/:S_L' do
 
   numero = params[:numero]
@@ -44,5 +25,19 @@ get '/fibonacci/:numero/:S_L' do
   end
 
   return respuesta;
+
+end
+
+get '/fibonacci/:numero' do
+
+      numero = params[:numero].to_i
+      sentido = "sentido=#{params[:sentido]}"
+      solo = "solo=#{params[:solo]}"
+
+      arreglo_con_parametros = ArregloCompleto.calcular_arreglo_completo(numero, sentido, solo);
+      respuesta = json(fibonacci: { limite: numero, lista: arreglo_con_parametros })
+
+      return respuesta;
+
 
 end
