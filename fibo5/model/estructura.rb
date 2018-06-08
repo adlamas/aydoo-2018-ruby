@@ -10,7 +10,7 @@ class Estructura
   end
 
   def self.devolver_estructura(estructura, suma_lista)
-    if(suma_lista == "suma_lista")
+    if(suma_lista == "sumatoria")
       suma = sumar(estructura)
       return suma;
     else
