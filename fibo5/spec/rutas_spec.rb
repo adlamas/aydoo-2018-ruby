@@ -45,6 +45,53 @@ describe "Aplicacion fibo5" do
     end
   end
 
-  
+  describe "error en la ruta /8?sentido=sarasa" do
+    it "/8?sentido=sarasa" do
+      get 'fibonacci/8?sentido=sarasa';
+      expect(last_response.body).to eq '{error: Opciones no válidas}'
+    end
+  end
+
+  describe "error en la ruta /8?solo=sarasa" do
+    it "/8?solo=sarasa" do
+      get 'fibonacci/8?solo=sarasa';
+      expect(last_response.body).to eq '{error: Opciones no válidas}'
+    end
+  end
+
+  describe "ruta /8/lista" do
+    it "/8/lista" do
+      get 'fibonacci/8/lista';
+      expect(last_response.body).to eq '{"fibonacci":{"limite":"8","lista":[0,1,1,2,3,5,8,13]}}'
+    end
+  end
+
+  describe "ruta /5/sumatoria" do
+    it "/5/sumatoria" do
+      get 'fibonacci/5/sumatoria';
+      expect(last_response.body).to eq '{"fibonacci":{"limite":"5","sumatoria":7}}'
+    end
+  end
+
+  describe "ruta /5/lista?sentido=inverso" do
+    it "/5/lista?sentido=inverso" do
+      get 'fibonacci/5/lista?sentido=inverso';
+      expect(last_response.body).to eq '{"fibonacci":{"limite":"5","lista":[3,2,1,1,0]}}'
+    end
+  end
+
+  describe "ruta /8/sumatoria?solo=impares" do
+    it "/8/sumatoria?sentido=inverso" do
+      get 'fibonacci/8/sumatoria?sentido=inverso';
+      expect(last_response.body).to eq '{"fibonacci":{"limite":"8","sumatoria":33}}'
+    end
+  end
+
+  describe "ruta /9/sumatoria?solo=pares&sentido=inverso" do
+    it "/9/sumatoria?solo=pares&sentido=inverso" do
+      get 'fibonacci/9/sumatoria?solo=pares&sentido=inverso';
+      expect(last_response.body).to eq '{"fibonacci":{"limite":"9","sumatoria":10}}';
+    end
+  end
 
 end

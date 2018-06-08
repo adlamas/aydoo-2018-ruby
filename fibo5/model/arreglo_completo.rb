@@ -13,7 +13,6 @@ class ArregloCompleto
     begin
       arreglo_pasado = Array.new()
       arreglo_pasado = CalculoArreglo.calcular(numero)
-
       parametros.each do |parametro|
         array_parametro = parametro.split('=')
         if(array_parametro[1].nil? == false)

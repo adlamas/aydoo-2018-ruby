@@ -33,13 +33,3 @@ get '/fibonacci/:numero' do
       return "{error: Opciones no válidas}";
     end
 end
-
-
-=begin
-No maneja errores (no devuelve nunca HTTP 400 con el JSON pedido)
-Pocos tests funcionales
-Todos los tests definidos en un único archivo
-Toda la lógica resuelta con métodos de clase
-Código muy poco claro, malos nombres, "if" sin código, etc.
-Comportamiento de objetos del modelo basados en strings tomados directamente de la URL, 0 abstracción.
-=end
