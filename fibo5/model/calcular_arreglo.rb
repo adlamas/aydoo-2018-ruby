@@ -14,15 +14,13 @@ class CalculoArreglo
     numero1 = 0;
     numero2 = 1;
 
-
     for i in 2...(numero_i) do
       temporal = numero1;
       numero1 = numero2;
       numero2 = temporal + numero1;
       serie_fibo[i] = numero2;
     end
-
-
+    
     return serie_fibo;
   end
 

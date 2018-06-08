@@ -8,7 +8,7 @@ class Solo
     elsif (solo == "impares")
       arreglo_nuevo = solo_valores_impares(arreglo_pasado)
     else
-
+      halt 400
     end
 
     return arreglo_nuevo;
