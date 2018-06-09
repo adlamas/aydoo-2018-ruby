@@ -8,7 +8,7 @@ require_relative 'model/crear_respuesta'
 require "byebug"
 
 get '/fibonacci/:numero/:S_L' do
-
+  begin
   numero = params[:numero]
   suma_lista = params[:S_L]
   sentido = "sentido=#{params[:sentido]}"
@@ -18,6 +18,9 @@ get '/fibonacci/:numero/:S_L' do
   estructura = Estructura.devolver_estructura(arreglo_con_parametros, suma_lista)
   respuesta = EncargadoDeRespuesta.responder(numero, estructura)
   return respuesta.to_json();
+rescue
+  return 400, "{error: Opciones no válidas}"; 
+end
 
 end
 
@@ -30,6 +33,6 @@ get '/fibonacci/:numero' do
       respuesta = EncargadoDeRespuesta.responder(numero, arreglo_con_parametros)
       return respuesta.to_json();
     rescue
-      return "{error: Opciones no válidas}";
+      return 400, "{error: Opciones no válidas}";
     end
 end

@@ -23,14 +23,13 @@ describe "Aplicacion fibo5" do
     end
   end
 
-
   describe "devolver solo valores pares" do
     it "deberia devolver solo los pares de un arreglo" do
       arreglo_8 = [0,1,1,2,3,5,8,13]
       arreglo_5 = [0,1,1,2,3]
 
-      arreglo_nuevo_8 = Solo.solo_valores_pares(arreglo_8)
-      arreglo_nuevo_5 = Solo.solo_valores_pares(arreglo_5)
+      arreglo_nuevo_8 = Solo.pares(arreglo_8)
+      arreglo_nuevo_5 = Solo.pares(arreglo_5)
 
       expect(arreglo_nuevo_8).to eq [2,8]
       expect(arreglo_nuevo_5).to eq [2]
@@ -42,8 +41,8 @@ describe "Aplicacion fibo5" do
       arreglo_8 = [0,1,1,2,3,5,8,13]
       arreglo_5 = [0,1,1,2,3]
 
-      arreglo_nuevo_8 = Solo.solo_valores_impares(arreglo_8)
-      arreglo_nuevo_5 = Solo.solo_valores_impares(arreglo_5)
+      arreglo_nuevo_8 = Solo.impares(arreglo_8)
+      arreglo_nuevo_5 = Solo.impares(arreglo_5)
 
       expect(arreglo_nuevo_8).to eq [1,1,3,5,13]
       expect(arreglo_nuevo_5).to eq [1,1,3]
@@ -55,8 +54,8 @@ describe "Aplicacion fibo5" do
       arreglo_8 = [0,1,1,2,3,5,8,13]
       arreglo_10 = [0,1,1,2,3,5,8,13,21,34]
 
-      arreglo_nuevo_8 = Solo.solo_estos_valores(arreglo_8, "impares")
-      arreglo_nuevo_10 = Solo.solo_estos_valores(arreglo_10, "pares")
+      arreglo_nuevo_8 = Solo.impares(arreglo_8)
+      arreglo_nuevo_10 = Solo.pares(arreglo_10)
 
       expect(arreglo_nuevo_8).to eq [1,1,3,5,13]
       expect(arreglo_nuevo_10).to eq [2,8,34]
