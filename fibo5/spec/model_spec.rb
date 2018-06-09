@@ -123,9 +123,9 @@ describe "Aplicacion fibo5" do
       arreglo2 = [0,1,1,2,3,5,8,13];
       arreglo3 = [0,1,1,2,3,5,8,13,21,34];
 
-      suma1 = Estructura.sumar(arreglo);
-      suma2 = Estructura.sumar(arreglo2);
-      suma3 = Estructura.sumar(arreglo3);
+      suma1 = Estructura.sumatoria(arreglo);
+      suma2 = Estructura.sumatoria(arreglo2);
+      suma3 = Estructura.sumatoria(arreglo3);
 
       expect(suma1).to eq 12
       expect(suma2).to eq 33

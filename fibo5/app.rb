@@ -19,7 +19,7 @@ get '/fibonacci/:numero/:S_L' do
   respuesta = EncargadoDeRespuesta.responder(numero, estructura)
   return respuesta.to_json();
 rescue
-  return 400, "{error: Opciones no válidas}"; 
+  return 400, "{error: Opción no válida}";
 end
 
 end
@@ -33,6 +33,6 @@ get '/fibonacci/:numero' do
       respuesta = EncargadoDeRespuesta.responder(numero, arreglo_con_parametros)
       return respuesta.to_json();
     rescue
-      return 400, "{error: Opciones no válidas}";
+      return 400, "{error: Opción no válida}";
     end
 end
