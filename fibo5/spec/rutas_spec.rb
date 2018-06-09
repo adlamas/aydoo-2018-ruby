@@ -48,14 +48,14 @@ describe "Aplicacion fibo5" do
   describe "error en la ruta /8?sentido=sarasa" do
     it "/8?sentido=sarasa" do
       get 'fibonacci/8?sentido=sarasa';
-      expect(last_response.body).to eq '{error: Opción no válida}'
+      expect(last_response.body).to eq '{"error": "Opción no válida"}'
     end
   end
 
   describe "error en la ruta /8?solo=sarasa" do
     it "/8?solo=sarasa" do
       get 'fibonacci/8?solo=sarasa';
-      expect(last_response.body).to eq '{error: Opción no válida}'
+      expect(last_response.body).to eq '{"error": "Opción no válida"}'
     end
   end
 

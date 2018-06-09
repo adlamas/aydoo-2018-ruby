@@ -22,7 +22,7 @@ class ArregloCompleto
       end
       return arreglo_pasado
     rescue
-      halt 400, "{error: Opción no válida}"
+      halt 400, '{"error": "Opción no válida"}'
     end
 end
 
