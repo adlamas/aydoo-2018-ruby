@@ -30,5 +30,5 @@ Para resolver los ejercicios deben:
 
 1. Crear un nuevo branch de master con el nombre del ejercicio
 1. Crear un nuevo subdirectorio con el nombre del ejercicio en el directorio raíz
-1. Copiar el contenido del proyecto de ejemplo (/chopper)
+1. Copiar el contenido del proyecto de ejemplo (`/chopper`)
 1. Borrar los archivos de ejemplo (`/model/chopper.rb` y `/spec/chopper_spec.rb`) del proyecto del ejercicio nuevo
