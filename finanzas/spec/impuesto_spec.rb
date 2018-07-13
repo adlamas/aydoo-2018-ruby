@@ -1,20 +1,20 @@
 require 'rspec'
 require_relative '../model/inversor'
 require_relative '../model/impuesto'
+require_relative '../model/compra_dolares'
 
 describe "Impuesto" do
 
-=begin
-  it "El impuesto para una empresa que gana entre 20.000 y 50.000 con su inversion debe ser del 5" do
+
+  it "El impuesto para un individuo que tiene de ganancia entre 0 y 50.000 con su inversion debe ser del 0" do
     inversor = Inversor.new("ind")
-    impuesto = Impuesto.new()
+    impuesto = Impuesto.new(inversor)
     compra_dolares = CompraDolares.new(1000, 7.0, 10.0)
     inversor.invertir(compra_dolares)
     inversor.recaudar_ganancias_brutas()
-    impuesto.calcular_tasa(inversor)
-    expect(impuesto.tasa).to eq 5
+    expect(impuesto.calcular_tasa()).to eq 0
   end
-=end
+
 
   it "el impuesto de individuo de una ganancia de 80000 debe ser de 5" do
     inversor = Inversor.new("ind")
@@ -30,7 +30,7 @@ describe "Impuesto" do
     expect(impuesto.impuesto_a_individuo(50000)).to eq 5
   end
 
-  it "el impuesto de individuo de una ganancia de 1050000 debe ser de 8" do
+  it "el impuesto de individuo de una ganancia de 1050000 debe ser de 10" do
     inversor = Inversor.new("ind")
     impuesto = Impuesto.new(inversor)
 
