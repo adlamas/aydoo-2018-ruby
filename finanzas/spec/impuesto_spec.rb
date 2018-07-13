@@ -39,9 +39,19 @@ describe "Impuesto" do
   it "El impuesto para un individuo que tiene de ganancia entre 50.000 y 100.000 con su plazo fijo debe ser del 5" do
     inversor = Inversor.new("ind")
     impuesto = Impuesto.new(inversor)
-    compra_dolares = PlazoFijo.new(365, 60, 100000)
-    inversor.invertir(compra_dolares)
+    plazo_fijo = PlazoFijo.new(365, 60, 100000)
+    inversor.invertir(plazo_fijo)
     inversor.recaudar_ganancias_brutas()
     expect(impuesto.calcular_tasa()).to eq 5
+  end
+
+  it "El impuesto para una empresa que obtene de ganancia entre 100.000 y 500.000 con su plazo fijo es del 15" do
+
+    inversor = Inversor.new("emp")
+    plazo_fijo = PlazoFijo.new(365, 20, 1000000)
+    inversor.invertir(plazo_fijo)
+    inversor.recaudar_ganancias_brutas()
+    impuesto = Impuesto.new(inversor)
+    expect(impuesto.calcular_tasa()).to eq 15
   end
 end
