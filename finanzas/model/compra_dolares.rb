@@ -10,4 +10,11 @@ class CompraDolares < Inversion
     @cotizacion_final = cotizacion_final.round(4)
   end
 
+  def obtener_ganancia()
+    monto_inicial = @monto * @cotizacion_inicial
+    monto_final = @monto * @cotizacion_final
+
+    return monto_final - monto_inicial
+  end
+
 end
