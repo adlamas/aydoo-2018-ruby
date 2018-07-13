@@ -9,4 +9,5 @@ describe 'Plazo Fijo' do
     expect(inversion.monto).to eq 100000
   end
 
+
 end
