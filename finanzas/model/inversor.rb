@@ -1,13 +1,14 @@
 
 class Inversor
 
-  attr_accessor :inversion, :ganancias, :tipo
+  attr_accessor :inversion, :ganancias_brutas, :ganancias_netas, :tipo
   attr_reader :posibles_tipos
 
 
   def initialize(tipo)
     @inversion = nil
-    @ganancias = 0
+    @ganancias_brutas = 0
+    @ganancias_netas = 0
     @posibles_tipos = {"emp" => "empresa", "ind" => "individuo"}
     @tipo = posibles_tipos[tipo]
   end
@@ -16,7 +17,7 @@ class Inversor
     @inversion = inversion
   end
 
-  def recaudar_ganancias()
-    @ganancias = @inversion.obtener_ganancia
+  def recaudar_ganancias_brutas()
+    @ganancias_brutas = @inversion.obtener_ganancia
   end
 end

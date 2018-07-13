@@ -4,23 +4,23 @@ require_relative '../model/compra_dolares'
 require_relative '../model/plazo_fijo'
 
 describe 'Inversor' do
-    it "El inversor devuelve la ganancia de una inversion de compra de dolares" do
+    it "El inversor devuelve la ganancia bruta de una inversion de compra de dolares" do
 
       inversor = Inversor.new("emp")
       compra_dolares = CompraDolares.new(1000, 7.0, 10.0)
       inversor.invertir(compra_dolares)
-      inversor.recaudar_ganancias()
-      expect(inversor.ganancias).to eq 3000.0
+      inversor.recaudar_ganancias_brutas()
+      expect(inversor.ganancias_brutas).to eq 3000.0
 
     end
 
-    it "El inversor devuelve la ganancia de una inversion de un plazo fijo" do
+    it "El inversor devuelve la ganancia bruta de una inversion de un plazo fijo" do
 
       inversor = Inversor.new("ind")
       plazo_fijo = PlazoFijo.new(365, 10, 2000)
       inversor.invertir(plazo_fijo)
-      inversor.recaudar_ganancias()
-      expect(inversor.ganancias).to eq 200
+      inversor.recaudar_ganancias_brutas()
+      expect(inversor.ganancias_brutas).to eq 200
 
     end
 
