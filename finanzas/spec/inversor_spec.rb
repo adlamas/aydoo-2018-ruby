@@ -1,11 +1,8 @@
 require 'rspec'
 require_relative '../model/inversor'
-require_relative '../model/plazoFijo'
+require_relative '../model/plazo_fijo'
 
 describe 'Inversor' do
 
-  it 'crear inversor con una inversion' do
-  
-  end
 
 end
