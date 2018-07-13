@@ -24,7 +24,12 @@ describe 'Plazo Fijo' do
 
   it "devolver interes total por los dias de plazo" do
     plazo_fijo = PlazoFijo.new(90, 10.00, 100000.00)
-    expect(plazo_fijo.interes_por_dias_de_plazo).to eq 2.5
+    expect(plazo_fijo.obtener_interes_por_dias_de_plazo).to eq 2.4658
+  end
+
+  it "devolver ganancia de plazo fijo" do
+    plazo_fijo = PlazoFijo.new(90, 10.00, 100000.00)
+    expect(plazo_fijo.obtener_ganancia).to eq 2465.8
   end
 
 end
