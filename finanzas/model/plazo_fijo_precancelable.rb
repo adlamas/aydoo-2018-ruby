@@ -12,6 +12,18 @@ class PlazoFijoPrecancelable < Inversion
     @plazo = plazo
     @plazo_real = plazo_real
     @interes = interes.round(4)
+
+    if(@plazo < @plazo_real)
+      raise ExcepcionDiferenciaDePlazosInvalida
+    end
+
+    if(@interes < 0)
+      raise ExcepcionInteresNegativo
+    end
+
+    if(@plazo <= 0 or @plazo_real <= 0)
+      raise ExcepcionPlazoInvalido
+    end
   end
 
   def obtener_interes_por_dias_de_plazo_totales()
