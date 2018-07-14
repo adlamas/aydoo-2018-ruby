@@ -1,15 +1,14 @@
-require_relative "inversor"
+
 class Impuesto
   attr_accessor :tasa, :inversor, :tipo_de_impuesto
 
-  def initialize(inversor)
+  def initialize()
     @tasa = 0
-    @inversor = inversor
     @tipo_de_impuesto = {"individuo" => "impuesto_a_individuo", "empresa" => "impuesto_a_empresa"}
   end
 
-  def calcular_tasa()
-    tasa = send(@tipo_de_impuesto[@inversor.tipo], inversor.ganancias_brutas)
+  def calcular_tasa(inversor, inversion)
+    tasa = send(@tipo_de_impuesto[inversor.tipo], inversion.obtener_ganancia())
     return tasa
   end
 
