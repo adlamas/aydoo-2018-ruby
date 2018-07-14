@@ -4,7 +4,6 @@ class Inversor
   attr_accessor :inversion, :ganancias_brutas, :ganancias_netas, :tipo
   attr_reader :posibles_tipos
 
-
   def initialize(tipo)
     @inversion = nil
     @ganancias_brutas = 0

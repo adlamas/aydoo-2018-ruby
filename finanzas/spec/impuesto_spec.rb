@@ -27,6 +27,13 @@ describe "Impuesto" do
     expect(impuesto.impuesto_a_individuo(1050000)).to eq 10
   end
 
+  it "el impuesto de una empresa que obtiene una ganancia de 50000 tiene que ser de 10" do
+    inversor = Inversor.new("emp")
+    impuesto = Impuesto.new(inversor)
+
+    expect(impuesto.impuesto_a_empresa(50000)).to eq 10
+  end
+
   it "El impuesto para un individuo que tiene de ganancia entre 0 y 50.000 con su inversion de dolares debe ser del 0" do
     inversor = Inversor.new("ind")
     impuesto = Impuesto.new(inversor)

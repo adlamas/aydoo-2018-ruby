@@ -34,8 +34,8 @@ describe 'Inversor' do
       expect(inversor_2.tipo).to eq "empresa"
     end
 
-    it "Una empresa invierte en plazo fijo precancelable y lo
-    retira antes de la fecha inicial, llevándose sólo el 50% de los intereses prefijados, 496.26" do
+    it "Una empresa invierte en plazo fijo precancelable y lo retira antes de la fecha inicial,
+    llevándose sólo el 50% de los intereses prefijados, con lo que serían 497.26 de ganancias brutas" do
 
       inversor = Inversor.new("emp")
       plazo_fijo_precancelable = PlazoFijoPrecancelable.new(121,50,30, 10000)
@@ -43,4 +43,5 @@ describe 'Inversor' do
       expect(inversor.recaudar_ganancias_brutas()).to eq 497.26
     end
 
+    
 end
