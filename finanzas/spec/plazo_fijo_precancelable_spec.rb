@@ -21,4 +21,10 @@ describe 'Plazo Fijo Precancelable' do
     expect(plazo_fijo_precancelable.plazo).to eq 90
   end
 
+  it "la obtencion de ganancia de un plazo fijo Precancelable de 90, 10, 100000 debe ser de 2465.8" do
+
+    plazo_fijo_precancelable = PlazoFijoPrecancelable.new(90, 10.0, 100000.0)
+    expect(plazo_fijo_precancelable.obtener_ganancia).to eq 2465.8
+  end
+
 end
