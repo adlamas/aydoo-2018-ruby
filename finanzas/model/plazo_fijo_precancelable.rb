@@ -2,11 +2,12 @@ require_relative 'inversion'
 
 class PlazoFijoPrecancelable < Inversion
 
-  attr_accessor :plazo, :interes
+  attr_accessor :plazo,:plazo_real, :interes
 
-  def initialize(plazo,interes,monto)
+  def initialize(plazo, plazo_real,interes,monto)
     super(monto)
     @plazo = plazo
+    @plazo_real = plazo_real
     @interes = interes.round(4)
   end
 
@@ -18,12 +19,13 @@ class PlazoFijoPrecancelable < Inversion
     return interes_final_a_cobrar
   end
 
-  def obtener_ganancia_a_fin_de_plazo()
-    return ((obtener_interes_por_dias_de_plazo_totales() * @monto)/100)
-  end
+  def obtener_ganancia()
+    tipo_interes = 1;
+    if(@plazo_real < @plazo)
+      tipo_interes = 2
+    end
 
-  def obtener_ganancia_cortando_plazo()
-    return (((obtener_interes_por_dias_de_plazo_totales()/2) * @monto)/100)
+    return (((obtener_interes_por_dias_de_plazo_totales() / tipo_interes) * @monto)/100)
   end
 
 end
