@@ -21,6 +21,10 @@ class Inversor
   end
 
   def recaudar_ganancias_brutas()
-    @ganancias_brutas = @inversion.obtener_ganancia
+    @ganancias_brutas = @inversion.obtener_ganancia()
+  end
+
+  def obtener_porcentaje_de_impuesto_a_ganancia_bruta()
+    return inversion.impuesto.calcular_tasa(self, @ganancias_brutas)
   end
 end

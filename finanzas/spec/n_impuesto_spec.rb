@@ -73,4 +73,54 @@ describe "Impuesto" do
     expect(impuesto.impuesto_a_individuo(600000)).to eq 10
   end
 
+  it "El impuesto para un individuo que tiene de ganancia entre 0 y 50.000 con su inversion de dolares debe ser del 0" do
+    inversor = Inversor.new("ind")
+    impuesto = Impuesto.new()
+    compra_dolares = CompraDolares.new(1000, 7.0, 10.0)
+    inversor.invertir(compra_dolares)
+    inversor.recaudar_ganancias_brutas()
+
+    expect(impuesto.calcular_tasa(inversor,inversor.ganancias_brutas)).to eq 0
+  end
+
+  it "El impuesto para un individuo que tiene de ganancia entre 50.000 y 100.000 con su plazo fijo debe ser del 5" do
+    inversor = Inversor.new("ind")
+    impuesto = Impuesto.new()
+    plazo_fijo = PlazoFijo.new(365, 60, 100000)
+    inversor.invertir(plazo_fijo)
+    inversor.recaudar_ganancias_brutas()
+    expect(impuesto.calcular_tasa(inversor,inversor.ganancias_brutas)).to eq 5
+  end
+
+  it "El impuesto para una empresa que obtene de ganancia entre 100.000 y 500.000 con su plazo fijo es del 15" do
+
+    inversor = Inversor.new("emp")
+    plazo_fijo = PlazoFijo.new(365, 20, 1000000)
+    inversor.invertir(plazo_fijo)
+    inversor.recaudar_ganancias_brutas()
+    impuesto = Impuesto.new()
+    expect(impuesto.calcular_tasa(inversor,inversor.ganancias_brutas)).to eq 15
+  end
+
+  it "El impuesto para una empresa que obtene de ganancia entre 50.000 y 100.000 con su plazo fijo es del 10" do
+
+    inversor = Inversor.new("emp")
+    plazo_fijo = PlazoFijo.new(365, 20, 300000)
+    inversor.invertir(plazo_fijo)
+    inversor.recaudar_ganancias_brutas()
+    impuesto = Impuesto.new()
+    expect(impuesto.calcular_tasa(inversor,inversor.ganancias_brutas)).to eq 10
+  end
+
+  it "El impuesto para una empresa que invierte en un plazo fijo precancelable 999999.9999999999 y
+  lo retira anticipadamente es de 15 y sus ganancias de 100000 " do
+    inversor = Inversor.new("emp")
+    plazo_fijo_precancelable = PlazoFijoPrecancelable.new(730,500, 10.0, 999999.9999999999)
+    inversor.invertir(plazo_fijo_precancelable)
+    inversor.recaudar_ganancias_brutas()
+    impuesto = Impuesto.new()
+    expect(inversor.ganancias_brutas).to eq 100000.0
+    expect(impuesto.calcular_tasa(inversor,inversor.ganancias_brutas)).to eq 15
+  end
+
 end

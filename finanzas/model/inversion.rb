@@ -15,4 +15,5 @@ class Inversion
   def agregar_impuesto(impuesto)
     @impuesto = impuesto
   end
+
 end
