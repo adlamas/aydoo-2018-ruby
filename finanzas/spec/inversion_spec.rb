@@ -9,5 +9,10 @@ describe 'Plazo Fijo' do
     expect(inversion.monto).to eq 100000
   end
 
+  it "crear una inversion de saldo negativo produce una excepcion 'monto_invalido'" do
+
+    expect{Inversion.new(-20)}.to raise_exception(ExcepcionMontoInvalido)
+  end
+
 
 end
