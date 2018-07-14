@@ -15,13 +15,36 @@ describe 'Inversor' do
 
     end
 
-    it "El inversor devuelve la ganancia bruta de una inversion de un plazo fijo" do
+    it "La ganancia bruta de un inversor de una inversion de 2000 en un plazo fijo de
+     365 dias con 10 de intereses es 200" do
 
       inversor = Inversor.new("ind")
       plazo_fijo = PlazoFijo.new(365, 10, 2000)
       inversor.invertir(plazo_fijo)
       inversor.recaudar_ganancias_brutas()
       expect(inversor.ganancias_brutas).to eq 200
+
+    end
+
+    it "La ganancia bruta de un inversor de un plazo fijo precancelable de 10000 de monto a 365 dias 10 de
+    intereses retirados antes es de 500 " do
+
+    inversor = Inversor.new("ind")
+    plazo_fijo = PlazoFijoPrecancelable.new(365,200, 10, 10000)
+    inversor.invertir(plazo_fijo)
+    inversor.recaudar_ganancias_brutas()
+    expect(inversor.ganancias_brutas).to eq 500
+
+    end
+
+    it "La ganancia bruta de un inversor de un plazo fijo precancelable de 10000 de monto a 365 dias
+    y 10 de intereses retirados a tiempo es de 1000" do
+
+      inversor = Inversor.new("ind")
+      plazo_fijo = PlazoFijoPrecancelable.new(365,365, 10, 10000)
+      inversor.invertir(plazo_fijo)
+      inversor.recaudar_ganancias_brutas()
+      expect(inversor.ganancias_brutas).to eq 1000
 
     end
 
@@ -43,5 +66,5 @@ describe 'Inversor' do
       expect(inversor.recaudar_ganancias_brutas()).to eq 497.26
     end
 
-    
+
 end

@@ -20,12 +20,12 @@ class PlazoFijoPrecancelable < Inversion
   end
 
   def obtener_ganancia()
-    tipo_interes = 1;
+    porcentaje_del_interes_inicial = 1;
     if(@plazo_real < @plazo)
-      tipo_interes = 2
+      porcentaje_del_interes_inicial = 2
     end
 
-    return (((obtener_interes_por_dias_de_plazo_totales() / tipo_interes) * @monto)/100)
+    return (((obtener_interes_por_dias_de_plazo_totales() / porcentaje_del_interes_inicial) * @monto)/100)
   end
 
 end
