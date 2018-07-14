@@ -11,6 +11,14 @@ class PlazoFijo < Inversion
     super(monto)
     @plazo = plazo
     @interes = interes.round(4)
+
+    if(@interes < 0)
+      raise ExcepcionInteresNegativo
+    end
+
+    if(@plazo <= 0)
+      raise ExcepcionPlazoInvalido
+    end
   end
 
   def obtener_interes_por_dias_de_plazo()

@@ -31,4 +31,14 @@ describe 'Plazo Fijo' do
     expect(plazo_fijo.obtener_ganancia).to eq 2465.8
   end
 
+  it "Si se intenta crear un plazo fijo con un interes negativo, se levanta una excepcion
+  ExcepcionInteresNegativo " do
+    expect{PlazoFijo.new(90,-10,50000)}.to raise_exception(ExcepcionInteresNegativo)
+  end
+
+  it "Si se intenta crear un plazo fijo con plazo o plazo_final menor a 0,
+  se levanta una excepcion ExcepcionPlazoInvalido " do
+    expect{PlazoFijo.new(-5,10,50000)}.to raise_exception(ExcepcionPlazoInvalido)
+  end
+
 end
