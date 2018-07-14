@@ -23,4 +23,10 @@ describe 'Plazo Fijo' do
     expect(compra_dolares.obtener_ganancia).to eq 4000.0
   end
 
+=begin
+  it "Una compra de dolares con la cotizacion_final menor a la cotizacion_inicial levanta una excepcion" do
+    expect{(CompraDolares.new(1000, 6.0, 5.0))}.to raise_exception(ExcepcionDiferenciaDeCotizacionesInvalida)
+  end
+=end
+
 end

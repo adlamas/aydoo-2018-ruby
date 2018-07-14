@@ -3,6 +3,7 @@ require_relative '../model/inversor'
 require_relative '../model/compra_dolares'
 require_relative '../model/plazo_fijo'
 require_relative '../model/plazo_fijo_precancelable'
+require_relative '../excepciones/excepcion_tipo_inversor_invalido'
 
 describe 'Inversor' do
     it "El inversor devuelve la ganancia bruta de una inversion de compra de dolares" do
@@ -64,6 +65,11 @@ describe 'Inversor' do
       plazo_fijo_precancelable = PlazoFijoPrecancelable.new(121,50,30, 10000)
       inversor.invertir(plazo_fijo_precancelable)
       expect(inversor.recaudar_ganancias_brutas()).to eq 497.26
+    end
+
+    it "Si intentamos crear un inversor que no sea de tipo 'ind' o 'emp', se levanta una excepcion" do
+
+      expect{Inversor.new("sarasa")}.to raise_exception(ExcepcionTipoInversorInvalido)
     end
 
 end

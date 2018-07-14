@@ -10,6 +10,9 @@ class Inversor
     @ganancias_brutas = 0
     @ganancias_netas = 0
     @posibles_tipos = {"emp" => "empresa", "ind" => "individuo"}
+    if(!@posibles_tipos.has_key?(tipo))
+      raise ExcepcionTipoInversorInvalido
+    end
     @tipo = posibles_tipos[tipo]
   end
 
