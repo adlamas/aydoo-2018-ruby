@@ -1,4 +1,3 @@
 
 - Excepciones para todos los casos que se me ocurrran
-- Modelar el campo y los métodos necesarios para determinar la ganancia neta del inversor (Después del impuesto)
 - Modelar la lógica de entrada de datos y salida de información

@@ -1,4 +1,7 @@
 require_relative 'inversion'
+require_relative '../excepciones/excepcion_diferencia_plazos_invalida'
+require_relative '../excepciones/excepcion_interes_negativo'
+require_relative '../excepciones/excepcion_plazo_invalido'
 
 class PlazoFijoPrecancelable < Inversion
 

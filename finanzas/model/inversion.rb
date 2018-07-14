@@ -1,3 +1,5 @@
+require_relative '../excepciones/excepcion_monto_invalido'
+
 class Inversion
 
   attr_accessor :monto

@@ -1,3 +1,4 @@
+require_relative '../excepciones/excepcion_tipo_inversor_invalido'
 
 class Inversor
 

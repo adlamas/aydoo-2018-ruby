@@ -66,5 +66,4 @@ describe 'Inversor' do
       expect(inversor.recaudar_ganancias_brutas()).to eq 497.26
     end
 
-
 end
