@@ -39,7 +39,7 @@ class PlazoFijoPrecancelable < Inversion
     if(@plazo_real < @plazo)
       porcentaje_del_interes_inicial = 2
     end
-
+    
     return (((obtener_interes_por_dias_de_plazo_totales() / porcentaje_del_interes_inicial) * @monto)/100)
   end
 
