@@ -24,8 +24,8 @@ class Inversor
     @ganancias_brutas = @inversion.obtener_ganancia()
   end
 
-  def obtener_impuesto_ganancia_de_inversion()
-    tasa = inversion.obtener_impuesto_ganancia_de_inversion(self)
+  def obtener_impuesto_a_ganancia_de_inversion()
+    tasa = inversion.obtener_impuesto_a_ganancia_de_inversion(self)
     return tasa
   end
 

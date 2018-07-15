@@ -1,4 +1,5 @@
 require_relative '../excepciones/excepcion_monto_invalido'
+require_relative 'impuesto'
 
 class Inversion
 
@@ -9,14 +10,14 @@ class Inversion
       raise ExcepcionMontoInvalido
     end
     @monto = monto.round(4)
-    @impuesto = nil
+    @impuesto = Impuesto.new()
   end
 
   def agregar_impuesto(impuesto)
-    @impuesto = impuesto
+    #@impuesto = impuesto
   end
 
-  def obtener_impuesto_ganancia_de_inversion(inversor)
+  def obtener_impuesto_a_ganancia_de_inversion(inversor)
     tasa = impuesto.calcular_tasa(inversor, inversor.ganancias_brutas)
     return tasa
   end
