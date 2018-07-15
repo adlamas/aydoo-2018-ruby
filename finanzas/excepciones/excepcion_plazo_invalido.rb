@@ -2,6 +2,6 @@
 class ExcepcionPlazoInvalido < Exception
 
   def initialize(msg="El plazo siempre debe ser mayor a cero")
-    super()
+    puts msg
   end
 end
