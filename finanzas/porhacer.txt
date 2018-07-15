@@ -1,3 +1,2 @@
 
-- Modelar las ganancias netas
-- Modelar la lógica de entrada de datos y salida de información
+- Falta modelar el hecho de que los parametros puedan venir en cualquier sentido (Creo)
