@@ -12,10 +12,11 @@ class CompraDolares < Inversion
   end
 
   def obtener_ganancia()
-    monto_inicial = @monto * @cotizacion_inicial
-    monto_final = @monto * @cotizacion_final
+    monto_inicial_dolares = @monto / @cotizacion_inicial
+    valor_dolares_inicialmente = monto_inicial_dolares * @cotizacion_inicial
+    valor_dolares_finalmente = monto_inicial_dolares * @cotizacion_final
 
-    return monto_final - monto_inicial
+    return valor_dolares_finalmente - valor_dolares_inicialmente
   end
 
 end

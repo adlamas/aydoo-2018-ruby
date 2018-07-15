@@ -13,7 +13,7 @@ describe 'Inversor' do
       compra_dolares.agregar_impuesto(impuesto)
       inversor.invertir(compra_dolares)
       inversor.recaudar_ganancias_brutas()
-      expect(inversor.ganancias_brutas).to eq 3000
+      expect(inversor.ganancias_brutas).to eq 428.57142857142867
       expect(inversor.obtener_impuesto_a_ganancia_de_inversion()).to eq 0
     end
 
@@ -80,8 +80,8 @@ describe 'Inversor' do
       compra_dolares.agregar_impuesto(impuesto)
       inversor.invertir(compra_dolares)
       inversor.recaudar_ganancias_brutas()
-      expect(inversor.ganancias_brutas).to eq 650000
-      expect(inversor.obtener_impuesto_a_ganancia_de_inversion()).to eq 10
+      expect(inversor.ganancias_brutas).to eq 65000.0
+      expect(inversor.obtener_impuesto_a_ganancia_de_inversion()).to eq 5
 
     end
 

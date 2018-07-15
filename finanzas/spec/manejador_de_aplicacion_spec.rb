@@ -15,7 +15,7 @@ describe 'Manejador De Aplicacion' do
     inversor_resultante = manejador.devolver_inversor_con_inversion_asignada("ind","dol,1000,15,20")
     inversor_resultante.recaudar_ganancias_brutas()
     expect(inversor_resultante.tipo).to eq "individuo"
-    expect(inversor_resultante.ganancias_brutas).to eq 5000
+    expect(inversor_resultante.ganancias_brutas).to eq 333.33333333333337
 
   end
 

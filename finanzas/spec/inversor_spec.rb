@@ -12,7 +12,7 @@ describe 'Inversor' do
       compra_dolares = CompraDolares.new(1000, 7.0, 10.0)
       inversor.invertir(compra_dolares)
       inversor.recaudar_ganancias_brutas()
-      expect(inversor.ganancias_brutas).to eq 3000.0
+      expect(inversor.ganancias_brutas).to eq 428.57142857142867
 
     end
 
