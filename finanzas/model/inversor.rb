@@ -6,7 +6,7 @@ class Inversor
   attr_reader :posibles_tipos
 
   def initialize(tipo)
-    @inversion = Array.new()
+    @inversiones = Array.new()
     @ganancias_brutas = 0
     @ganancias_netas = 0
     @posibles_tipos = {"emp" => "empresa", "ind" => "individuo"}
@@ -17,12 +17,12 @@ class Inversor
   end
 
   def invertir(inversion)
-    @inversion.push(inversion)
+    @inversiones.push(inversion)
   end
 
   def recaudar_ganancias_brutas()
     ganancias_brutas = 0
-    @inversion.each do |inversion|
+    @inversiones.each do |inversion|
       ganancias_brutas += inversion.obtener_ganancia()
     end
     @ganancias_brutas = ganancias_brutas

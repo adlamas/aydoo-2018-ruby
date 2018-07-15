@@ -80,7 +80,7 @@ describe "Impuesto" do
     inversor.invertir(compra_dolares)
     inversor.recaudar_ganancias_brutas()
 
-    expect(impuesto.calcular_impuesto(inversor,inversor.ganancias_brutas)).to eq 0
+    expect(impuesto.calcular_impuesto(inversor.tipo, inversor.ganancias_brutas)).to eq 0
   end
 
   it "El impuesto para un individuo que tiene de ganancia entre 50.000 y 100.000 con su plazo fijo debe ser del 5" do
@@ -89,7 +89,7 @@ describe "Impuesto" do
     plazo_fijo = PlazoFijo.new(365, 60, 100000)
     inversor.invertir(plazo_fijo)
     inversor.recaudar_ganancias_brutas()
-    expect(impuesto.calcular_impuesto(inversor,inversor.ganancias_brutas)).to eq 3000
+    expect(impuesto.calcular_impuesto(inversor.tipo, inversor.ganancias_brutas)).to eq 3000
   end
 
   it "El impuesto para una empresa que obtene de ganancia entre 100.000 y 500.000 con su plazo fijo es del 15" do
@@ -99,7 +99,7 @@ describe "Impuesto" do
     inversor.invertir(plazo_fijo)
     inversor.recaudar_ganancias_brutas()
     impuesto = Impuesto.new()
-    expect(impuesto.calcular_impuesto(inversor,inversor.ganancias_brutas)).to eq  30000
+    expect(impuesto.calcular_impuesto(inversor.tipo, inversor.ganancias_brutas)).to eq  30000
   end
 
   it "El impuesto para una empresa que obtene de ganancia entre 50.000 y 100.000 con su plazo fijo es del 10" do
@@ -109,7 +109,7 @@ describe "Impuesto" do
     inversor.invertir(plazo_fijo)
     inversor.recaudar_ganancias_brutas()
     impuesto = Impuesto.new()
-    expect(impuesto.calcular_impuesto(inversor,inversor.ganancias_brutas)).to eq 6000
+    expect(impuesto.calcular_impuesto(inversor.tipo, inversor.ganancias_brutas)).to eq 6000
   end
 
   it "El impuesto para una empresa que invierte en un plazo fijo precancelable 999999.9999999999 y
@@ -120,7 +120,7 @@ describe "Impuesto" do
     inversor.recaudar_ganancias_brutas()
     impuesto = Impuesto.new()
     expect(inversor.ganancias_brutas).to eq 100000.0
-    expect(impuesto.calcular_impuesto(inversor,inversor.ganancias_brutas)).to eq 15000
+    expect(impuesto.calcular_impuesto(inversor.tipo, inversor.ganancias_brutas)).to eq 15000
   end
 
 end

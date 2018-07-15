@@ -7,9 +7,9 @@ class Impuesto
     @tipo_de_impuesto = {"individuo" => "impuesto_a_individuo", "empresa" => "impuesto_a_empresa"}
   end
 
-  def calcular_impuesto(inversor, ganancias_brutas)
-    impuesto = send(@tipo_de_impuesto[inversor.tipo], ganancias_brutas)
-    return impuesto
+  def calcular_impuesto(tipo,ganancias_brutas)
+    impuesto_a_ganancias = send(@tipo_de_impuesto[tipo], ganancias_brutas)
+    return impuesto_a_ganancias
   end
 
   def impuesto_a_individuo(ganancias_brutas)

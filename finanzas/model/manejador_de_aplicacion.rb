@@ -11,10 +11,11 @@ class ManejadorDeAplicacion
   def initialize
   end
 
-  def devolver_inversor_con_inversion_asignada(inversor, inversion)
-    inversor = construir_inversor(inversor)
-    inversion = construir_inversion(inversion)
-    inversor.invertir(inversion)
+  def devolver_inversor_con_inversiones_asignadas(parametros)
+    inversor = construir_inversor(parametros[0])
+    for i in(1...parametros.length)
+      inversor.invertir(construir_inversiones(parametros[i]))
+    end
     return inversor
   end
 
@@ -23,7 +24,7 @@ class ManejadorDeAplicacion
     return inversor
   end
 
-  def construir_inversion(inversion)
+  def construir_inversiones(inversion)
     arreglo = inversion.split(',')
     metodo_a_ejecutar = arreglo[0]
     arreglo_de_parametros = construir_parametros_para_inversion(arreglo)
@@ -39,7 +40,7 @@ class ManejadorDeAplicacion
 
   def construir_parametros_para_inversion(arreglo)
     arreglo_de_parametros = Array.new()
-    for i in (1..arreglo.length)
+    for i in (1...arreglo.length)
       arreglo_de_parametros.push(arreglo[i].to_f)
     end
     return arreglo_de_parametros

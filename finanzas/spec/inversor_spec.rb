@@ -94,7 +94,7 @@ describe 'Inversor' do
       inversor.invertir(plazo_fijo)
       inversor.invertir(compra_dolares)
       inversor.recaudar_ganancias_brutas()
-      impuesto = impuesto.calcular_impuesto(inversor,inversor.ganancias_brutas)
+      impuesto = impuesto.calcular_impuesto(inversor.tipo,inversor.ganancias_brutas)
       expect(impuesto).to eq 9600
 
     end
@@ -117,7 +117,7 @@ describe 'Inversor' do
       inversor.invertir(plazo_fijo)
       inversor.invertir(compra_dolares)
       inversor.recaudar_ganancias_brutas()
-      impuesto = impuesto.calcular_impuesto(inversor,inversor.ganancias_brutas)
+      impuesto = impuesto.calcular_impuesto(inversor.tipo,inversor.ganancias_brutas)
       expect(impuesto).to eq 1632.875
     end
 
