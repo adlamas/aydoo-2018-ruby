@@ -17,7 +17,7 @@ class Impuesto
       [500000, Float::INFINITY] => 10}
     tasas.each do |key, value|
       if(ganancias_brutas.between?(key[0],key[1]))
-        return value
+        return ((ganancias_brutas * value)/100)
       end
     end
   end
@@ -27,7 +27,7 @@ class Impuesto
       [500000, Float::INFINITY] => 20}
     tasas.each do |key, value|
       if(ganancias_brutas.between?(key[0],key[1]))
-          return value
+          return ((ganancias_brutas * value)/100)
       end
     end
   end
