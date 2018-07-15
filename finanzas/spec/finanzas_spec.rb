@@ -71,6 +71,32 @@ describe 'Inversor' do
 
     end
 
+    it "El impuesto a una compra de dolares de individuo de monto 50000, cot inicial 10, cot final 23 cot es 8
+    ya que su ganancias brutas son de 273972.5" do
 
+      inversor = Inversor.new("ind")
+      compra_dolares = CompraDolares.new(50000,10,23)
+      impuesto = Impuesto.new()
+      compra_dolares.agregar_impuesto(impuesto)
+      inversor.invertir(compra_dolares)
+      inversor.recaudar_ganancias_brutas()
+      expect(inversor.ganancias_brutas).to eq 650000
+      expect(inversor.obtener_impuesto_a_ganancia_de_inversion()).to eq 10
+
+    end
+
+    it "El impuesto a un plazo fijo precancelable de individuo de monto 400000, plazo 100, plazo real 100 y interes de 10 es 5
+    ya que su ganancias brutas son de 27397.25" do
+
+    inversor = Inversor.new("ind")
+    plazo_fijo_precancelable = PlazoFijoPrecancelable.new(100, 100, 50, 400000)
+    impuesto = Impuesto.new()
+    plazo_fijo_precancelable.agregar_impuesto(impuesto)
+    inversor.invertir(plazo_fijo_precancelable)
+    inversor.recaudar_ganancias_brutas()
+    expect(inversor.ganancias_brutas).to eq 54794.4
+    expect(inversor.obtener_impuesto_a_ganancia_de_inversion()).to eq 5
+
+    end
 
   end
