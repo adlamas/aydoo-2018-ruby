@@ -10,6 +10,6 @@ begin
   impuesto_a_ganancias = impuesto.calcular_impuesto(inversor.tipo,inversor.ganancias_brutas)
 
   puts "ganancia: #{ganancias}, impuesto: #{impuesto_a_ganancias}"
-rescue Exception => e
+rescue Exception
 
 end

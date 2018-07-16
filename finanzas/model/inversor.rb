@@ -28,9 +28,5 @@ class Inversor
     @ganancias_brutas = ganancias_brutas
   end
 
-  def obtener_impuesto_a_ganancia_de_inversion(impuesto)
-    total_impuesto = impuesto.calcular_impuesto(self,@ganancias_brutas)
-    return total_impuesto
-  end
 
 end
