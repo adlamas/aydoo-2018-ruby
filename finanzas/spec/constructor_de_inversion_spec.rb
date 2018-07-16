@@ -24,4 +24,14 @@ describe 'ConstructorDeInversion' do
     expect(plazo_fijo.class).to eq PlazoFijo
   end
 
+  it 'crear un plazo fijo precancelable mediante el constructor de inversion y devolver sus atributos' do
+    constructor = ConstructorDeInversion.new()
+    plazo_fijo_precancelable = constructor.construir_inversiones("pfp,365,300,40,100000")
+    expect(plazo_fijo_precancelable.monto).to eq 100000
+    expect(plazo_fijo_precancelable.interes).to eq 40
+    expect(plazo_fijo_precancelable.plazo).to eq 365
+    expect(plazo_fijo_precancelable.plazo_real).to eq 300
+    expect(plazo_fijo_precancelable.class).to eq PlazoFijoPrecancelable
+  end
+
 end
