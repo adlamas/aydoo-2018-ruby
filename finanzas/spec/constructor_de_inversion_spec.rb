@@ -17,11 +17,11 @@ describe 'ConstructorDeInversion' do
 
   it 'crear un plazo fijo mediante el constructor de inversion y devolver sus atributos' do
     constructor = ConstructorDeInversion.new()
-    compra_dolares = constructor.construir_inversiones("dol,1000, 20.0, 28.0")
-    expect(compra_dolares.monto).to eq 1000
-    expect(compra_dolares.cotizacion_inicial).to eq 20
-    expect(compra_dolares.cotizacion_final).to eq 28
-    expect(compra_dolares.class).to eq CompraDolares
+    plazo_fijo = constructor.construir_inversiones("pft,90, 10.00, 100000.00")
+    expect(plazo_fijo.monto).to eq 100000
+    expect(plazo_fijo.interes).to eq 10
+    expect(plazo_fijo.plazo).to eq 90
+    expect(plazo_fijo.class).to eq PlazoFijo
   end
 
 end
