@@ -20,7 +20,7 @@ class ManejadorDeAplicacion
   def devolver_inversor_con_inversiones_asignadas(parametros)
     inversor = @constructor_de_inversor.construir_inversor(parametros[0])
     for i in(1...parametros.length)
-      inversor.invertir(@constructor_de_inversion.construir_inversiones(parametros[i]))
+      inversor.invertir(@constructor_de_inversion.construir_inversion(parametros[i]))
     end
     return inversor
   end

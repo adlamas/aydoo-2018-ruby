@@ -8,8 +8,8 @@ class ConstructorDeInversion
   def initialize
   end
 
-  def construir_inversiones(inversion)
-    arreglo = inversion.split(',')
+  def construir_inversion(inversion)
+    arreglo = inversion.split(',')    
     tipo_de_inversion = arreglo[0]
     arreglo_de_parametros = construir_parametros_para_inversion(arreglo)
     hash_de_inversiones =
