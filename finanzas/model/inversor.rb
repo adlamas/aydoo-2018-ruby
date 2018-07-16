@@ -2,13 +2,12 @@ require_relative '../excepciones/excepcion_tipo_inversor_invalido'
 
 class Inversor
 
-  attr_accessor :inversion, :ganancias_brutas, :ganancias_netas, :tipo
+  attr_accessor :inversiones, :ganancias_brutas, :tipo
   attr_reader :posibles_tipos
 
   def initialize(tipo)
     @inversiones = Array.new()
     @ganancias_brutas = 0
-    @ganancias_netas = 0
     @posibles_tipos = {"emp" => "empresa", "ind" => "individuo"}
     if(!@posibles_tipos.has_key?(tipo))
       raise ExcepcionTipoInversorInvalido

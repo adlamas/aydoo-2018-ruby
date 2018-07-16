@@ -1,9 +1,8 @@
 
 class Impuesto
-  attr_accessor :tasa, :inversor, :tipo_de_impuesto
+  attr_accessor :tipo_de_impuesto
 
   def initialize()
-    @tasa = 0
     @tipo_de_impuesto = {"individuo" => "impuesto_a_individuo", "empresa" => "impuesto_a_empresa"}
   end
 

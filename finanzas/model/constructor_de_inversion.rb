@@ -8,8 +8,8 @@ class ConstructorDeInversion
   def initialize
   end
 
-  def construir_inversion(inversion)
-    arreglo = inversion.split(',')    
+  def construir_inversion(parametros_inversion)
+    arreglo = parametros_inversion.split(',')
     tipo_de_inversion = arreglo[0]
     arreglo_de_parametros = construir_parametros_para_inversion(arreglo)
     hash_de_inversiones =
@@ -21,8 +21,8 @@ class ConstructorDeInversion
     if(!hash_de_inversiones.include?(tipo_de_inversion))
       raise ExcepcionInversionNoExistente
     end
-    inversion = send(hash_de_inversiones[tipo_de_inversion], arreglo_de_parametros)
-    return inversion
+    inversion_a_devolver = send(hash_de_inversiones[tipo_de_inversion], arreglo_de_parametros)
+    return inversion_a_devolver
   end
 
   def construir_parametros_para_inversion(arreglo)

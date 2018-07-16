@@ -1,2 +1,0 @@
-
-- Falta modelar el hecho de que los parametros puedan venir en cualquier sentido (Creo)
