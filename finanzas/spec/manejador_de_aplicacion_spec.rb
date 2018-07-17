@@ -7,7 +7,7 @@ require_relative '../model/inversor'
 require_relative '../model/plazo_fijo_precancelable'
 require_relative '../model/plazo_fijo'
 require_relative '../excepciones/excepcion_tipo_inversor_invalido'
-
+require_relative '../excepciones/excepcion_inversion_no_existente'
 
 describe 'Manejador De Aplicacion' do
 
@@ -64,5 +64,12 @@ describe 'Manejador De Aplicacion' do
     arreglo_de_entrada = ["empa","dol,20000,20,28","pft,90,40,250000"]
     expect{manejador.devolver_inversor_con_inversiones_asignadas(arreglo_de_entrada)}.to raise_exception(ExcepcionTipoInversorInvalido)
   end
+
+  it "Intentar crear un inversion de tipo 'doal' hace que se tire una excepcion de tipo ExcepcionInversionNoExistente" do
+    manejador = ManejadorDeAplicacion.new()
+    arreglo_de_entrada = ["emp","doal,20000,20,28","pft,90,40,250000"]
+    expect{manejador.devolver_inversor_con_inversiones_asignadas(arreglo_de_entrada)}.to raise_exception(ExcepcionInversionNoExistente)
+  end
+
 
 end

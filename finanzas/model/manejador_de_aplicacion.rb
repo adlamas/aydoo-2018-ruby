@@ -7,8 +7,6 @@ require_relative '../excepciones/excepcion_inversion_no_existente'
 require_relative 'constructor_de_inversor'
 require_relative 'constructor_de_inversion'
 
-
-
 class ManejadorDeAplicacion
 
   attr_accessor :constructor_de_inversion, :constructor_de_inversor

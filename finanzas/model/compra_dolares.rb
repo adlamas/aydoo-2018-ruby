@@ -1,5 +1,4 @@
 require_relative 'inversion'
-require_relative '../excepciones/excepcion_diferencia_cotizaciones_invalida'
 
 class CompraDolares < Inversion
 
