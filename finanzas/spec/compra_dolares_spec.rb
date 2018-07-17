@@ -18,7 +18,7 @@ describe 'Plazo Fijo' do
     expect(compra_dolares.cotizacion_final).to eq 27.0
   end
 
-  it 'obtener la ganancia de la compra de dolares' do
+  it 'La ganancia de una inversion de compra de dolares con monto 1000, cot _i 20 y cot_f 28 debería ser de 400' do
     compra_dolares = CompraDolares.new(1000, 20.0, 28.0)
     expect(compra_dolares.obtener_ganancia).to eq 400
   end

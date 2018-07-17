@@ -6,7 +6,7 @@ require_relative '../model/plazo_fijo_precancelable'
 require_relative '../model/impuesto'
 
 describe 'Inversor' do
-    it "Devolver la ganancia neta y el porcentaje del impuesto de una compra de dolares a 1000, 7, 10 de una empresa" do
+    it "El impuesto de una compra de dolares a 1000, 7, 10 de una empresa es 0 y sus ganancias brutas de 428.57142857142867" do
       inversor = Inversor.new("emp")
       compra_dolares = CompraDolares.new(1000, 7.0, 10.0)
       impuesto = Impuesto.new()
@@ -16,9 +16,8 @@ describe 'Inversor' do
       expect(impuesto.calcular_impuesto(inversor.tipo, inversor.ganancias_brutas)).to eq 0
     end
 
-    it "Devolver la ganancia neta y el porcentaje del impuesto de un plazo fijo de plazo 200, monto 1000000, interes 10
-     de una empresa" do
-
+    it "La ganancia bruta debe ser de 54795 y el impuesto de un plazo fijo de plazo 200, monto 1000000,
+    interes 10 de una empresa es 5479.5" do
       inversor = Inversor.new("emp")
       plazo_fijo = PlazoFijo.new(200, 10, 1000000)
       impuesto = Impuesto.new()
@@ -28,66 +27,53 @@ describe 'Inversor' do
       expect(impuesto.calcular_impuesto(inversor.tipo, inversor.ganancias_brutas)).to eq 5479.5
     end
 
-    it "Devolver la ganancia neta y el porcentaje del impuesto de un plazo fijo de plazo 365, monto 100000, interes 10
-     de una empresa" do
-
+    it "El impuesto de un plazo fijo de plazo 365, monto 100000, interes 10 de una empresa debe ser de 0" do
       inversor = Inversor.new("emp")
       plazo_fijo = PlazoFijo.new(365, 10, 100000)
       impuesto = Impuesto.new()
       inversor.invertir(plazo_fijo)
       inversor.recaudar_ganancias_brutas()
-      expect(inversor.ganancias_brutas).to eq 10000
       expect(impuesto.calcular_impuesto(inversor.tipo, inversor.ganancias_brutas)).to eq 0
     end
 
-    it "El impuesto a un plazo fijo precancelable de empresa de monto 500000, plazo 200, plazo real 150 y interes de 20 es 5
-    ya que su ganancias brutas son de 27397.25" do
-
+    it "El impuesto a un plazo fijo precancelable de empresa de monto 500000, plazo 200, plazo real 150 y interes de 20 es de
+    1369.8625" do
       inversor = Inversor.new("emp")
       plazo_fijo_precancelable = PlazoFijoPrecancelable.new(200, 150, 20, 500000)
       impuesto = Impuesto.new()
       inversor.invertir(plazo_fijo_precancelable)
       inversor.recaudar_ganancias_brutas()
-      expect(inversor.ganancias_brutas).to eq 27397.25
       expect(impuesto.calcular_impuesto(inversor.tipo, inversor.ganancias_brutas)).to eq 1369.8625
 
     end
 
-    it "El impuesto a un plazo fijo de individuo de monto 5000000, plazo 200, plazo real 150 y interes de 20 es 8
-    ya que su ganancias brutas son de 273972.5" do
-
+    it "El impuesto a un plazo fijo de individuo de monto 5000000, plazo 200, plazo real 150 y interes de 20 es de 21917.8" do
       inversor = Inversor.new("ind")
       plazo_fijo_precancelable = PlazoFijoPrecancelable.new(200, 150, 20, 5000000)
       impuesto = Impuesto.new()
       inversor.invertir(plazo_fijo_precancelable)
       inversor.recaudar_ganancias_brutas()
-      expect(inversor.ganancias_brutas).to eq 273972.5
       expect(impuesto.calcular_impuesto(inversor.tipo, inversor.ganancias_brutas)).to eq 21917.8
 
     end
 
-    it "El impuesto a una compra de dolares de individuo de monto 50000, cot inicial 10, cot final 23 cot es 8
-    ya que su ganancias brutas son de 273972.5" do
-
+    it "El impuesto a una compra de dolares de individuo de monto 50000, cot inicial 10, cot final 23 cot es de 3250" do
       inversor = Inversor.new("ind")
       compra_dolares = CompraDolares.new(50000,10,23)
       impuesto = Impuesto.new()
       inversor.invertir(compra_dolares)
       inversor.recaudar_ganancias_brutas()
-      expect(inversor.ganancias_brutas).to eq 65000.0
       expect(impuesto.calcular_impuesto(inversor.tipo, inversor.ganancias_brutas)).to eq 3250
 
     end
 
-    it "El impuesto a un plazo fijo precancelable de individuo de monto 400000, plazo 100, plazo real 100 y interes de 10 es 5
-    ya que su ganancias brutas son de 27397.25" do
-
+    it "El impuesto a un plazo fijo precancelable de individuo de monto 400000, plazo 100, plazo real 100 y interes de 10 es de
+     de 2739.72" do
     inversor = Inversor.new("ind")
     plazo_fijo_precancelable = PlazoFijoPrecancelable.new(100, 100, 50, 400000)
     impuesto = Impuesto.new()
     inversor.invertir(plazo_fijo_precancelable)
     inversor.recaudar_ganancias_brutas()
-    expect(inversor.ganancias_brutas).to eq 54794.4
     expect(impuesto.calcular_impuesto(inversor.tipo, inversor.ganancias_brutas)).to eq 2739.72
 
     end

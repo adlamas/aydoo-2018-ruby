@@ -84,7 +84,7 @@ describe 'Inversor' do
 
     end
 
-    it "El impuesto a las ganancias de la entrada 'ind pft,365,10,500000 pfp,365,300,40,100000 dol,100000,18,27' es de 8" do
+    it "El impuesto a las ganancias de la entrada 'ind pft,365,10,500000 pfp,365,300,40,100000 dol,100000,18,27' es de 9600" do
       inversor = Inversor.new("ind")
       plazo_fijo_precancelable = PlazoFijoPrecancelable.new(365,300,40,100000)
       compra_dolares = CompraDolares.new(100000,18,27)

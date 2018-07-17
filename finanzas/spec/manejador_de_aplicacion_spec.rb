@@ -6,6 +6,7 @@ require_relative '../model/inversion'
 require_relative '../model/inversor'
 require_relative '../model/plazo_fijo_precancelable'
 require_relative '../model/plazo_fijo'
+require_relative '../excepciones/excepcion_tipo_inversor_invalido'
 
 
 describe 'Manejador De Aplicacion' do
@@ -21,7 +22,7 @@ describe 'Manejador De Aplicacion' do
 
   end
 
-  it 'Ejemplo completo 3' do
+  it 'Prueba integral Ejemplo completo 3' do
     manejador = ManejadorDeAplicacion.new()
     arreglo_de_entrada = ["ind","pft,365,10,500000","pfp,365,300,40,100000","dol,100000,18,27"]
     inversor_resultante = manejador.devolver_inversor_con_inversiones_asignadas(arreglo_de_entrada)
@@ -32,7 +33,7 @@ describe 'Manejador De Aplicacion' do
 
   end
 
-  it 'Ejemplo completo 1' do
+  it 'Prueba integral Ejemplo completo 1' do
     manejador = ManejadorDeAplicacion.new()
     arreglo_de_entrada = ["ind","dol,1000,20,28"]
     inversor_resultante = manejador.devolver_inversor_con_inversiones_asignadas(arreglo_de_entrada)
@@ -45,7 +46,7 @@ describe 'Manejador De Aplicacion' do
 
   end
 
-  it 'Ejemplo completo 2' do
+  it 'Prueba integral Ejemplo completo 2' do
     manejador = ManejadorDeAplicacion.new()
     arreglo_de_entrada = ["emp","dol,20000,20,28","pft,90,40,250000"]
     inversor_resultante = manejador.devolver_inversor_con_inversiones_asignadas(arreglo_de_entrada)
@@ -56,6 +57,12 @@ describe 'Manejador De Aplicacion' do
     impuesto = Impuesto.new()
     expect(impuesto.calcular_impuesto(inversor_resultante.tipo, inversor_resultante.ganancias_brutas)).to eq 1632.875
 
+  end
+
+  it "Intentar crear un inversor de tipo 'empa' hace que se tire una excepcion de tipo ExcepcionTipoInversorInvalido" do
+    manejador = ManejadorDeAplicacion.new()
+    arreglo_de_entrada = ["empa","dol,20000,20,28","pft,90,40,250000"]
+    expect{manejador.devolver_inversor_con_inversiones_asignadas(arreglo_de_entrada)}.to raise_exception(ExcepcionTipoInversorInvalido)
   end
 
 end
