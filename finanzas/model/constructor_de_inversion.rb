@@ -34,11 +34,9 @@ class ConstructorDeInversion
   end
 
   def inversion_compra_dolares(parametros)
-
     monto = parametros[0]
     cot_ini = parametros[1]
     cot_fin = parametros[2]
-
     compra_dolares = CompraDolares.new(monto,cot_ini,cot_fin)
     return compra_dolares
   end
