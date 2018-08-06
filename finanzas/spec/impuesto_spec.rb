@@ -4,62 +4,64 @@ require_relative '../model/impuesto'
 require_relative '../model/compra_dolares'
 require_relative '../model/plazo_fijo'
 require_relative '../model/plazo_fijo_precancelable'
+require_relative "../model/impuesto_a_empresa"
+require_relative "../model/impuesto_a_individuo"
 
 describe "Impuesto" do
 
   it "El impuesto de individuo de una ganancia de 80000 debe ser de 4000" do
-    impuesto = Impuesto.new()
-    expect(impuesto.impuesto_a_individuo(80000)).to eq 4000
+    impuesto = ImpuestoAIndividuo.new()
+    expect(impuesto.calcular_impuesto(80000)).to eq 4000
   end
 
   it "El impuesto de individuo de una ganancia de 50000 debe ser de 2500" do
-    impuesto = Impuesto.new()
-    expect(impuesto.impuesto_a_individuo(50000)).to eq 2500
+    impuesto = ImpuestoAIndividuo.new()
+    expect(impuesto.calcular_impuesto(50000)).to eq 2500
   end
 
   it "El impuesto de individuo de una ganancia de 1050000 debe ser de 105000" do
-    impuesto = Impuesto.new()
-    expect(impuesto.impuesto_a_individuo(1050000)).to eq 105000
+    impuesto = ImpuestoAIndividuo.new()
+    expect(impuesto.calcular_impuesto(1050000)).to eq 105000
   end
 
   it "El impuesto de una empresa que obtiene una ganancia de 50000 tiene que ser de 5000" do
-    impuesto = Impuesto.new()
-    expect(impuesto.impuesto_a_empresa(50000)).to eq 5000
+    impuesto = ImpuestoAEmpresa.new()
+    expect(impuesto.calcular_impuesto(50000)).to eq 5000
   end
 
   it "El impuesto de una empresa que obtiene una ganancia de 499999.9999 tiene que ser de 74999.999985" do
-    impuesto = Impuesto.new()
-    expect(impuesto.impuesto_a_empresa(499999.9999)).to eq 74999.999985
+    impuesto = ImpuestoAEmpresa.new()
+    expect(impuesto.calcular_impuesto(499999.9999)).to eq 74999.999985
   end
 
   it "El impuesto de una empresa que obtiene una ganancia de 100000 tiene que ser de 15000" do
-    impuesto = Impuesto.new()
-    expect(impuesto.impuesto_a_empresa(100000)).to eq 15000
+    impuesto = ImpuestoAEmpresa.new()
+    expect(impuesto.calcular_impuesto(100000)).to eq 15000
   end
 
   it "El impuesto de una empresa que obtiene una ganancia de 99999.9999 tiene que ser de 9999.99999" do
-    impuesto = Impuesto.new()
-    expect(impuesto.impuesto_a_empresa(99999.9999)).to eq 9999.99999
+    impuesto = ImpuestoAEmpresa.new()
+    expect(impuesto.calcular_impuesto(99999.9999)).to eq 9999.99999
   end
 
   it "El impuesto de una empresa que obtiene una ganancia de 10000000 tiene que ser de 2000000" do
-    impuesto = Impuesto.new()
-    expect(impuesto.impuesto_a_empresa(10000000)).to eq 2000000
+    impuesto = ImpuestoAEmpresa.new()
+    expect(impuesto.calcular_impuesto(10000000)).to eq 2000000
   end
 
   it "El impuesto de una empresa que obtiene una ganancia de 500000 o más tiene que ser de 100000" do
-    impuesto = Impuesto.new()
-    expect(impuesto.impuesto_a_empresa(500000)).to eq 100000
+    impuesto = ImpuestoAEmpresa.new()
+    expect(impuesto.calcular_impuesto(500000)).to eq 100000
   end
 
   it "El impuesto de un inviduo que obtiene una ganancia de 500000 o más tiene que ser de 50000" do
-    impuesto = Impuesto.new()
-    expect(impuesto.impuesto_a_individuo(500000)).to eq 50000
+    impuesto = ImpuestoAIndividuo.new()
+    expect(impuesto.calcular_impuesto(500000)).to eq 50000
   end
 
   it "El impuesto de un inviduo que obtiene una ganancia de mas de 500000 o más tiene que ser del 10%" do
-    impuesto = Impuesto.new()
-    expect(impuesto.impuesto_a_individuo(600000)).to eq 60000
+    impuesto = ImpuestoAIndividuo.new()
+    expect(impuesto.calcular_impuesto(600000)).to eq 60000
   end
 
   it "El impuesto para un individuo que tiene de ganancia entre 0 y 50.000 con su inversion de dolares debe ser de 0%" do
